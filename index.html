@@ -6,7 +6,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title></title>
-    <script src="js/mui.min.js"></script>
     <link href="css/mui.min.css" rel="stylesheet"/>
     <style>
     	.title {
@@ -27,7 +26,7 @@
     
 </head>
 <body>
-	<div class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+	<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-slide-in">
 		<div class="mui-inner-wrap">
 			
 			<!--侧滑菜单部分-->
@@ -84,7 +83,23 @@
 					<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">蓝色</button>
 				</div>
 			</div>
+			
+			<!--菜单弹出时，主内容区域浮层覆盖-->
+			<!--当点击主内容区域返回主页面时，避免内容误触-->
+			<div class="mui-off-canvas-backdrop"></div>
 		</div>
 	</div>
+	
+	<script src="js/mui.min.js"></script>
+	<script>
+		mui.init();
+		//侧滑容器父节点
+		var offCanvasWrapper = mui('#offCanvasWrapper');
+			
+    	//菜单界面，‘关闭侧滑菜单’按钮的点击事件
+		document.getElementById('offCanvasHide').addEventListener('tap', function() {
+			offCanvasWrapper.offCanvas('close');
+		});
+	</script> 
 </body>
 </html>
