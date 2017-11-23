@@ -30,7 +30,7 @@
 		<div class="mui-inner-wrap">
 			
 			<!--侧滑菜单部分-->
-			<aside class="mui-off-canvas-left">
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
 				<div class="mui-scroll-wrapper">
 					<div class="mui-scroll">
 						<!--菜单内容-->
@@ -73,7 +73,8 @@
 			
 			<!-- 主页面标题 -->
 			<header class="mui-bar mui-bar-nav">
-				<a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+				<!--添加href指向要到达页面(id="offCanvasSide")--> 
+				<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
 				<h1 class="mui-title">标题</h1>
 			</header>
 			<!-- 主页面内容容器 -->
@@ -95,11 +96,11 @@
 		mui.init();
 		//侧滑容器父节点
 		var offCanvasWrapper = mui('#offCanvasWrapper');
-			
     	//菜单界面，‘关闭侧滑菜单’按钮的点击事件
 		document.getElementById('offCanvasHide').addEventListener('tap', function() {
 			offCanvasWrapper.offCanvas('close');
 		});
+
 	</script> 
 </body>
 </html>
